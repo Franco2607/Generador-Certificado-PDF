@@ -1,0 +1,132 @@
+<div class="page-container">
+  
+  <div class="header-section">
+    <div class="breadcrumbs">
+      Dashboard / Caja / Certificados / <strong>Generar certificado</strong>
+    </div>
+    <h1 class="page-title">Generar certificado</h1>
+    <p class="page-subtitle">Completa los datos para generar el certificado.</p>
+  </div>
+
+  <div class="content-grid">
+    
+    <div class="info-column">
+      <h2>Información del certificado</h2>
+      <p class="info-description">Selecciona al solicitante y el tipo de certificado a generar.</p>
+      
+      <div class="info-box">
+        <p><strong>Solicitante:</strong> El solicitante del certificado debe ser un Propietario, Conductor, Trabajador o Externo ya registrado.</p>
+        <br>
+        <p><strong>Tipos de certificados:</strong> Afiliación propietario, Afiliación conductor, Ingresos propietario, Laboral y DIAN.</p>
+        <p class="nota-costo"><em>Nota: Únicamente los certificados de tipo: Afiliación propietario, Afiliación conductor e Ingresos propietario, tienen costo.</em></p>
+      </div>
+    </div>
+
+    <div class="form-column">
+      <div class="card">
+
+        <form #certForm="ngForm">
+
+          <div class="form-group">
+            <label>Solicitante <span>*</span></label>
+            <span class="hint"> Empieza a escribir para buscar </span>
+            <div class="input-wrapper">
+              <span class="icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </span>
+              <input 
+                type="text" 
+                name="solicitante"
+                [(ngModel)]="vehiculoSeleccionado.conductorNombre"
+                [ngModelOptions]="{standalone: true}" 
+                #solicitanteCtrl="ngModel"
+                required
+                placeholder="Buscar por nombre, identificación...">
+            </div>
+            <span class="error-msg" *ngIf="solicitanteCtrl.invalid && (solicitanteCtrl.dirty || solicitanteCtrl.touched)">
+              El solicitante es obligatorio.
+            </span>
+          </div>
+          
+          <div class="form-group">
+            <label>Placa del Vehículo <span>*</span></label>
+            <input 
+              type="text" 
+              name="placa"
+              [(ngModel)]="vehiculoSeleccionado.placa" 
+              [ngModelOptions]="{standalone: true}"
+              #placaCtrl="ngModel"
+              required
+              placeholder="Ej. ABC-123">
+            <span class="error-msg" *ngIf="placaCtrl.invalid && (placaCtrl.dirty || placaCtrl.touched)">
+              La placa es obligatoria.
+            </span>
+          </div>
+          
+          <div class="form-group">
+            <label>Empresa <span>*</span></label>
+            <div class="input-wrapper">
+              <span class="icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+              <select 
+                name="empresa"
+                [(ngModel)]="vehiculoSeleccionado.empresa"
+                [ngModelOptions]="{standalone: true}"
+                #empresaCtrl="ngModel"
+                required>
+                <option value="" disabled selected> Selecciona la empresa...</option>
+                <option value="Todas las empresas">Todas las empresas</option>
+                <option value="Taxgaleras">Taxgaleras</option>
+                <option value="Credigaleras">Credigaleras</option>
+                <option value="Flota Galeras">Flota Galeras</option>
+                <option value="RC Galeras">RC Galeras</option>
+                <option value="Cordigaleras">Cordigaleras</option>
+              </select>
+            </div>
+            <span class="error-msg" *ngIf="empresaCtrl.invalid && (empresaCtrl.dirty || empresaCtrl.touched)">
+              Debes seleccionar una empresa.
+            </span>
+          </div>
+          
+          <div class="form-group">
+            <label>Tipo de certificado <span>*</span></label>
+            <div class="input-wrapper">
+              <span class="icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+              <select 
+                name="tipo"
+                [(ngModel)]="vehiculoSeleccionado.tipo"
+                [ngModelOptions]="{standalone: true}"
+                #tipoCtrl="ngModel"
+                required>
+                <option value="" disabled selected>Selecciona un tipo...</option>
+                <option value="Afiliación propietario">Afiliación propietario</option>
+                <option value="Afiliación conductor">Afiliación conductor</option>
+                <option value="Ingresos propietario">Ingresos propietario</option>
+                <option value="Laboral">Laboral</option>
+                <option value="DIAN">DIAN</option>
+              </select>
+            </div>
+            <span class="error-msg" *ngIf="tipoCtrl.invalid && (tipoCtrl.dirty || tipoCtrl.touched)">
+              Debes seleccionar un tipo de certificado.
+            </span>
+          </div>
+
+        </form>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="footer-actions">
+    <button class="btn-cancelar">Cancelar</button>
+    <app-export-button [dataToExport]="vehiculoSeleccionado" [disabled]="certForm.invalid === true"></app-export-button>
+  </div>
+  
+</div>

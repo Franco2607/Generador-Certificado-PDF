@@ -1,0 +1,51 @@
+.btn-generar {
+    /* 1. Dimensiones y Espaciado */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px; /* Ajusta esto según el tamaño que quieras */
+    min-width: 200px;  /* Para que tenga buen cuerpo */
+    
+    /* 2. Colores Exactos de la Imagen */
+    background-color: #FF0000; /* Rojo puro vibrante */
+    color: #FFFFFF;           /* Texto blanco puro */
+    
+    /* 3. Forma (Bordes muy redondeados) */
+    border: none;             /* Quitamos el borde por defecto */
+    border-radius: 50px;      /* Un valor alto crea el efecto de píldora */
+    
+    /* 4. Tipografía */
+    font-family: 'Roboto', 'Helvetica Neue', sans-serif; /* Fuentes limpias */
+    font-size: 16px;
+    font-weight: 500;         /* Ligeramente negrita, como en la imagen */
+    text-align: center;
+    text-decoration: none;
+    
+    /* 5. Interacción y Efectos */
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra suave para dar relieve */
+    transition: all 0.3s ease; /* Animación suave al pasar el mouse */
+    outline: none;            /* Quitamos el borde azul al hacer foco */
+  }
+  
+  /* Efecto al pasar el mouse (Hover) */
+  .btn-generar:hover:not(:disabled) {
+    background-color: #E60000; /* Un rojo un poco más oscuro */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* La sombra crece */
+    transform: translateY(-1px); /* Sube ligeramente */
+  }
+  
+  /* Efecto al hacer clic (Active) */
+  .btn-generar:active:not(:disabled) {
+    background-color: #CC0000; /* Más oscuro aún */
+    transform: translateY(1px);  /* Baja ligeramente */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  }
+  
+  /* Estilo cuando está deshabilitado (Generando...) */
+  .btn-generar:disabled {
+    background-color: #ffcccc; /* Rojo muy pálido */
+    color: #a0a0a0;           /* Texto gris */
+    cursor: not-allowed;      /* Cambia el puntero */
+    box-shadow: none;         /* Sin sombra */
+  }

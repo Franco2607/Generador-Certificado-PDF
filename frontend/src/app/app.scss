@@ -1,0 +1,177 @@
+.page-container {
+  padding: 40px;
+  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+  background-color: #fafafa;
+  min-height: 100vh;
+  color: #333;
+}
+
+.breadcrumbs {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+}
+
+.page-subtitle {
+  color: #666;
+  font-size: 15px;
+  margin-bottom: 40px;
+}
+
+.content-grid {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 40px;
+}
+
+.info-column {
+  flex: 1;
+  max-width: 400px;
+  
+  h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .info-description {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+.info-box {
+  margin-top: 25px;
+  background-color: #f0f4f8;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #4a90e2;
+  font-size: 13.5px;
+  line-height: 1.6;
+
+  .nota-costo {
+    margin-top: 10px;
+    color: #d9534f;
+  }
+}
+
+.form-column {
+  flex: 2;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.form-group {
+  margin-bottom: 24px;
+  
+  label {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: #333;
+    
+    span {
+      color: #ccc;
+    }
+  }
+  
+  .hint {
+    display: block;
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 8px;
+  }
+}
+
+input[type="text"], 
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #333;
+  font-family: inherit;
+  
+  &:focus {
+    outline: none;
+    border-color: #4a90e2;
+  }
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+
+  .icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    pointer-events: none;
+  }
+
+  input[type="text"], 
+  select {
+    padding-left: 40px;
+  }
+
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+  }
+}
+
+.footer-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  padding-top: 20px;
+  border-top: 1px solid #eaeaea;
+}
+
+.btn-cancelar {
+  padding: 12px 24px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  
+  &:hover {
+    background: #f5f5f5;
+  }
+
+.error-msg {
+  display: block;
+  color: #d9534f;
+  font-size: 12px;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched {
+  border-color: #d9534f;
+}
+}

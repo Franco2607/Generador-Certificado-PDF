@@ -1,0 +1,7 @@
+<button 
+  class="btn-generar" 
+  (click)="descargar()" 
+  [disabled]="cargando()"
+>
+  {{ cargando() ? 'Generando PDF...' : 'Generar certificado' }}
+</button>
