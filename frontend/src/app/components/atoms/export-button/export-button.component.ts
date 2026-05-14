@@ -1,6 +1,6 @@
 // src/app/components/export-button/export-button.component.ts
 import { Component, inject, signal, Input, input } from '@angular/core';
-import { ReportService } from '../../services/report.service'; 
+import { ReportService } from '../../../services/report.service'; 
 import { CommonModule } from '@angular/common';
 
 @Component({

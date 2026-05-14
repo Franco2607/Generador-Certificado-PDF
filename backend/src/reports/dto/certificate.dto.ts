@@ -18,6 +18,6 @@ export class CreateCertificateDto {
   empresa: string;
 
   @IsString()
-  @IsOptional()
+  @IsNotEmpty()
   tipo: string;
 }
