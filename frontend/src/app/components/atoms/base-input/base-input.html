@@ -1,0 +1,7 @@
+<input 
+  [type]="type" 
+  [name]="name"
+  [placeholder]="placeholder"
+  [ngModel]="value"
+  (ngModelChange)="onChange($event)"
+  [ngClass]="{'with-icon': hasIcon}">

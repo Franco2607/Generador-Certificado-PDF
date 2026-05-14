@@ -1,0 +1,63 @@
+<div class="card">
+  <form #certForm="ngForm">
+
+    <app-labeled-input
+      label="Solicitante"
+      placeholder="Buscar por nombre, identificación..."
+      hint="Empieza a escribir para buscar"
+      errorMessage="El solicitante es obligatorio."
+      [required]="true"
+      iconPath="/icons/Lupa.png"
+      [value]="vehiculoSeleccionado.conductorNombre"
+      (valueChange)="vehiculoSeleccionado.conductorNombre = $event"
+      name="solicitante">
+    </app-labeled-input>
+
+    <app-labeled-input
+      label="Placa del Vehículo"
+      placeholder="Ej. ABC-123"
+      errorMessage="La placa es obligatoria."
+      [required]="true"
+      [value]="vehiculoSeleccionado.placa"
+      (valueChange)="vehiculoSeleccionado.placa = $event"
+      name="placa">
+    </app-labeled-input>
+
+    <app-labeled-select
+      label="Empresa"
+      errorMessage="Debes seleccionar una empresa."
+      [required]="true"
+      [value]="vehiculoSeleccionado.empresa"
+      (valueChange)="vehiculoSeleccionado.empresa = $event"
+      name="empresa">
+      <option value="" disabled selected> Selecciona la empresa...</option>
+      <option value="Todas las empresas">Todas las empresas</option>
+      <option value="Taxgaleras">Taxgaleras</option>
+      <option value="Credigaleras">Credigaleras</option>
+      <option value="Flota Galeras">Flota Galeras</option>
+      <option value="RC Galeras">RC Galeras</option>
+      <option value="Cordigaleras">Cordigaleras</option>
+    </app-labeled-select>
+    
+    <app-labeled-select
+      label="Tipo de certificado"
+      errorMessage="Debes seleccionar un tipo de certificado."
+      [required]="true"
+      [value]="vehiculoSeleccionado.tipo"
+      (valueChange)="vehiculoSeleccionado.tipo = $event"
+      name="tipo">
+      <option value="" disabled selected>Selecciona un tipo...</option>
+      <option value="Afiliación propietario">Afiliación propietario</option>
+      <option value="Afiliación conductor">Afiliación conductor</option>
+      <option value="Ingresos propietario">Ingresos propietario</option>
+      <option value="Laboral">Laboral</option>
+      <option value="DIAN">DIAN</option>
+    </app-labeled-select>
+
+  </form>
+</div>
+
+<div class="footer-actions">
+  <button class="btn-cancelar">Cancelar</button>
+  <app-export-button [dataToExport]="vehiculoSeleccionado" [disabled]="certForm.invalid === true"></app-export-button>
+</div>

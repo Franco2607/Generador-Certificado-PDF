@@ -1,0 +1,23 @@
+<div class="form-group">
+  <label>{{ label }} <span *ngIf="required">*</span></label>
+  <span class="hint" *ngIf="hint">{{ hint }}</span>
+  
+  <div class="input-wrapper">
+    <span class="icon" *ngIf="iconPath">
+      <img [src]="iconPath" alt="icon" class="input-icon">
+    </span>
+    
+    <app-base-input 
+      [type]="type" 
+      [name]="name"
+      [placeholder]="placeholder"
+      [value]="value"
+      [hasIcon]="!!iconPath" 
+      (valueChange)="onInputChange($event)">
+    </app-base-input>
+  </div>
+
+  <span class="error-msg" *ngIf="required && !value">
+    {{ errorMessage }}
+  </span>
+</div>

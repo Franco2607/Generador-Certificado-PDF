@@ -1,0 +1,21 @@
+<div class="form-group">
+  <label>{{ label }} <span *ngIf="required">*</span></label>
+  
+  <div class="input-wrapper">
+    <span class="icon">
+      <img src="/icons/desplegar.png" alt="select icon" class="select-icon">
+    </span>
+    <select 
+      [name]="name"
+      [ngModel]="value"
+      (ngModelChange)="onSelectChange($event)"
+      #selectCtrl="ngModel"
+      [required]="required">
+      <ng-content></ng-content>
+    </select>
+  </div>
+
+  <span class="error-msg" *ngIf="required && selectCtrl.invalid && (selectCtrl.dirty || selectCtrl.touched)">
+    {{ errorMessage }}
+  </span>
+</div>
